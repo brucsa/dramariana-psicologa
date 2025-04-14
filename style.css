@@ -1,0 +1,544 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+:root {
+    --main-color: #47B2B2;
+    --color-candy: #d4f3f3;
+    --color-candy-2: #ec9fb2;
+    --color: #C65571;
+    --text-color: #222221;
+    --main-bg-color: #ebf1ff;
+    --shadow: #d4def5;
+    --main-font:
+        "Pacifico", cursive;
+    font-weight: 200px;
+    font-style: normal;
+    --text-font:
+        "Kumbh Sans",
+        sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+    font-variation-settings:
+        "YOPQ" 300;
+    --icon-size: 40px;
+    /* Tamanho dos ícones */
+}
+
+/* Global Mobile */
+body {
+    background-color: var(--main-bg-color);
+    font-family: var(--text-font);
+    margin: 20px;
+}
+
+/* Estilo do Botão Hambúrguer */
+.menu-hamburguer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: relative;
+}
+
+.menu-hamburguer span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    /* linha do menu */
+    transition: all 0.3s ease;
+}
+
+/* Menu Escondido */
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: var(--shadow);
+    /* fundo menu aberto */
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 4px 6px var(--main-color);
+    /* cor da sombra - menu aberto */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    /* texto do menu aberto */
+    font-size: 16px;
+}
+
+/* Quando o menu está visível */
+.menu.active {
+    display: block;
+}
+
+/* Animação do Hambúrguer */
+.menu-hamburguer.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-hamburguer.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-hamburguer.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Logo */
+header img {
+    width: 250px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: var(--main-font);
+    color: var(--color);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--color);
+    font-family: var(--main-font);
+    font-weight: 200;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+.button {
+    background-color: var(--main-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--text-font);
+}
+
+.button:hover {
+    background-color: var(--color);
+    color: var(--main-bg-color);
+}
+
+.inicio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.inicio div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inicio img {
+    height: 200px;
+}
+
+.inicio h1 {
+    text-align: center;
+}
+
+.inicio h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: var(--text-font);
+    font-weight: 400;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna no modo mobile */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    margin: 20px; /* Adiciona margem ao redor da seção */
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.sobre h2 {
+    margin-bottom: 10px;
+}
+
+.sobre img {
+    width: 300px;
+    margin-top: 10px;
+}
+
+.beneficios {
+    padding: 20px 0px;
+}
+
+.beneficios h2 {
+    margin-bottom: 10px;
+}
+
+.beneficios p {
+    margin-bottom: 20px;
+}
+
+.beneficios h3,
+.beneficios i {
+    color: var(--main-color);
+}
+
+/* Cards Beneficios */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaçamento consistente entre os cards */
+}
+
+.card {
+    border-radius: 20px;
+    border: var(--main-color) 2px solid;
+    background-color: var(--color-candy);
+    width: 90%; /* Largura relativa */
+    max-width: 300px; /* Tamanho máximo */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px var(--shadow);
+}
+
+.card-icon {
+    color: var(--main-color);
+    font-size: var(--icon-size);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--main-bg-color);
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.servicos {
+    padding: 40px 0;
+}
+
+.servicos h2 {
+    margin-bottom: 10px;
+}
+
+/* Cards Serviços */
+.slide-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.slide-content {
+    margin: 0 40px;
+}
+
+.card-servicos {
+    width: 320px;
+    border-radius: 25px;
+    background-color: var(--color-candy);
+    /* fundo card */
+    border: 2px solid var(--main-color);
+}
+
+.image-content,
+.card-servicos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content {
+    position: relative;
+}
+
+.card-servicos-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.card-servicos-image .card-servicos-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.name {
+    /* Título Card */
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--main-color);
+    padding-bottom: 10px;
+}
+
+.description {
+    text-align: center;
+}
+
+.button {
+    border: none;
+    margin: 14px 20px 0 14px;
+}
+
+/* Contato */
+.contato h2,
+.contato p {
+    padding-bottom: 10px;
+}
+
+.contato div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    border: var(--main-color) 2px solid;
+    font-family: var(--text-font);
+}
+
+input[type="submit"] {
+    width: 200px;
+    border: none;
+}
+
+.contato-info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    background-image: url("Imagens/footer.svg");
+    background-repeat: no-repeat;
+    background-size: contain; /*  imagem exibida sem cortes */
+    background-position: center;
+    width: 100%;
+    height: 150px;
+    /* Altura fixa para garantir espaço suficiente */
+    position: relative;
+    /* Permite posicionamento interno */
+}
+
+.footer-content {
+    text-align: center;
+    /* Centraliza o texto e os ícones */
+    color: var(--main-color);
+    /* Cor do texto */
+    z-index: 2;
+    /* Garante que o conteúdo fique acima do fundo */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os ícones horizontalmente */
+    gap: 20px;
+    /* Espaçamento entre os ícones */
+    margin-top: 10px;
+    /* Espaço entre o título e os ícones */
+}
+
+footer img {
+    width: var(--icon-size);
+    /* Usa o tamanho definido no :root */
+}
+
+footer a {
+    padding: 10px;
+    transition: transform 0.3s ease;
+    /* Adiciona um efeito suave ao passar o mouse */
+}
+
+footer a:hover {
+    transform: scale(1.2);
+    /* Amplia o ícone ao passar o mouse */
+}
+
+.assinatura {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color);
+    border-top: var(--color) 2px solid;
+    padding: 0 10px;
+}
+
+.assinatura:hover {
+    text-decoration: underline;
+}
+
+/* /* Global Desktop */
+@media (min-width:800px) {
+body {
+    margin: 20px 120px;
+}
+
+    .menu-hamburguer {
+        display: none; /* Remove o botão hamburguer */
+    }
+
+    /* Exibe o menu diretamente sem o toggle */
+    .menu {
+        display: flex; /* Mostra o menu */
+        position: static; /* Remove a posição absoluta */
+        background-color: transparent; /* Remove o fundo escuro */
+        box-shadow: none; /* Remove a sombra */
+        width: auto; /* Largura automática */
+    }
+
+    .menu ul {
+        display: flex; /* Alinha os itens do menu horizontalmente */
+        gap: 40px; /* Espaçamento entre os itens */
+    }
+
+    .menu ul li a {
+        font-size: 1rem; /* Ajusta o tamanho da fonte */
+        color: var(--text-color); /* Cor do texto */
+    }
+    
+    .menu a:hover {
+        text-decoration: underline;
+    }
+
+    /* Logo */
+    header img {
+        width: 300px;
+    }
+
+    .inicio {
+        flex-direction: row;
+    }
+
+    .inicio img {
+        height: 400px;
+    }
+
+    .sobre {
+        flex-direction: row; /* Altera para linha no modo desktop */
+        justify-content: space-between; 
+        align-items: center;
+        margin: 0; /* Remove a margem interna para respeitar a margem do body */
+        padding: 0; /* Remove o espaçamento interno */
+    }
+
+    .sobre div {
+        width: 45%; /* Divide o espaço entre o texto e a imagem */
+    }
+
+    .sobre img {
+        width: 100%; /* Garante que a imagem ocupe o espaço disponível */
+        max-width: 400px; /* Define um tamanho máximo para a imagem */
+        height: auto; /* Mantém a proporção */
+    }
+
+    .card-servicos {
+        height: 450px;
+    }
+
+    .servicos .container {
+        display: flex; /* Alinha os cards horizontalmente */
+        justify-content: space-between; /* Espaçamento entre os cards */
+        flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas, se necessário */
+    }
+
+    .slide-container {
+        width: 30%; /* Cada card ocupa 30% da largura do container */
+        margin-bottom: 20px; /* Espaçamento entre as linhas */
+    }
+
+    .card-servicos {
+        height: 450px;
+    }
+
+.contato article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contato div {
+    width: 50%;
+}
+
+.contato-info {
+width: 400px;
+}
+
+    footer {
+        height: 180px;
+        /* Altura fixa para garantir espaço suficiente */
+    }
+}
